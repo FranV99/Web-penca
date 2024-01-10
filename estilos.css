@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+}
+
+#botonesContainer{
+    position: relative;
+    margin: 100px auto;
+}
+
+h1{
+    margin: 20px 0;
+}
+
+img{
+    margin-top: 100px;
+    
+}
+
+button{
+    width: 70px;
+    height: 50px;
+    position: absolute;
+}
+
+#boton1 {
+    left: calc(40% - 35px);
+}
+
+#boton2 {
+    right: calc(40% - 35px);
+}
+
+@media only screen and (max-width: 600px) {
+    #boton1 {
+        left: 20%;
+    }
+    
+    #boton2 {
+        right: 20%;
+    
+  }
+}

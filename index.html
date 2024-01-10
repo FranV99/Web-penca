@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web penca</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>¿Me quieres?</h1>
+    <div id="botonesContainer">
+        <button id="boton1" onclick="mostrarGifYMusica()">Si</button>
+        <button id="boton2">No</button>
+    </div>
+    <img src="" alt="">
+</body>
+<script>
+    let boton1 = document.getElementById("boton1");
+    let boton2 = document.getElementById("boton2");
+
+     // Función para cambiar la posición del botón
+     function cambiarPosicion(boton) {
+        const nuevaPosX = Math.max(0, Math.min(window.innerWidth - boton.offsetWidth, Math.random() * (window.innerWidth - boton.offsetWidth)));
+        const nuevaPosY = Math.max(0, Math.min(window.innerHeight - boton.offsetHeight, Math.random() * (window.innerHeight - boton.offsetHeight)));
+
+
+        boton.style.left = nuevaPosX + 'px';
+        boton.style.top = nuevaPosY + 'px';
+    }
+
+    // Agrega eventos de escucha tanto para el hover como para el clic
+    boton2.addEventListener('mouseover', () => {
+        cambiarPosicion(boton2);
+    });
+
+    boton2.addEventListener('click', () => {
+        cambiarPosicion(boton2);
+    });
+
+    function mostrarGifYMusica(){
+        let gifElement = document.createElement("img");
+        gifElement.src = "https://media1.tenor.com/m/Jc9jT66AJRwAAAAd/chipi-chipi-chapa-chapa.gif";
+        document.body.appendChild(gifElement);
+
+        let audioElement = document.createElement("audio");
+        audioElement.src = "/musica/chipi-chipi-chapa-chapa-made-with-Voicemod-technology.mp3";
+        audioElement.autoplay = true;
+        audioElement.loop = true;
+        document.body.appendChild(audioElement);
+
+        // Cambia el color de fondo como un arco iris
+        let coloresArcoiris = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#8B00FF'];
+            let indiceColor = 0;
+
+            function cambiarColorFondo() {
+                document.body.style.backgroundColor = coloresArcoiris[indiceColor];
+                indiceColor = (indiceColor + 1) % coloresArcoiris.length;
+            }
+
+            // Llama a la función para cambiar el color de fondo cada 500 milisegundos
+            let intervaloColorFondo = setInterval(cambiarColorFondo, 200);
+
+    }
+</script>
+</html>
